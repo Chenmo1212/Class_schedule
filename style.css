@@ -1,0 +1,327 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:300,900|Libre+Franklin:100,200,300,600,900|Prompt:100,200,300,600,900';
+@import url("https://fonts.googleapis.com/css?family=Rubik:300i,400,500&display=swap");
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+    height: 100%;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+html.lato {
+    font-family: "Lato", sans-serif;
+}
+
+html.prompt {
+    font-family: "Prompt", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* reset */
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    background: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*:active,
+*:hover {
+    outline: 0;
+}
+
+b, i, em, strong,
+h1, h2, h3, h4, h5, h6,
+th, td, pre, ins, del, address,
+input, select, button, textarea {
+    text-transform: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: inherit;
+}
+
+a, ins, del, button {
+    color: inherit;
+    text-decoration: none;
+}
+
+form {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    overflow: visible;
+}
+
+.page-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #dee1e6;
+    font-family: "Lato", sans-serif;
+}
+
+.content {
+    margin-bottom: 2rem;
+}
+
+.schedule__time {
+    color: #C8CAD2;
+    font-size: 0.8rem;
+    font-weight: 600;
+    grid-column: times;
+}
+
+.schedule__track {
+    grid-row: tracks;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #BDBFC9;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    text-align: center;
+}
+
+.lunch-break {
+    grid-row: time-1100/time-1200;
+}
+
+.lunch-break,
+.dinner-break {
+    background-color: #f2f6fc;
+    grid-column: monday/saturday;
+}
+
+.schedule {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-rows: [tracks] 2em [time-0900] 1fr [time-1000] 1fr [time-1100] 0.5fr [time-1200] 1fr [time-1300] 1fr [time-1400] 1fr [time-1500] 1fr [time-1600] 1fr [time-1700] 0.5fr [time-1800];
+    grid-template-columns: [times] 3em [monday] 1fr [tuesday] 1fr [wednesday] 1fr [thursday] 1fr [friday] 1fr [saturday];
+}
+
+.session {
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.2em;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.session p {
+    font-size: 0.7rem;
+}
+
+.session.-accent1 {
+    background-image: linear-gradient(to bottom right, #5FBDF9, #76D2FC);
+}
+
+.session.-accent2 {
+    background-image: linear-gradient(to bottom right, #7784F7, #8A92F6);
+}
+
+.session.-accent3 {
+    background-image: linear-gradient(to bottom right, #F2A58E, #F4BB91);
+}
+
+.session.-accent4 {
+    background-image: linear-gradient(to bottom right, #465362, #58697C);
+}
+
+.session.-accent5 {
+    background-image: linear-gradient(to bottom right, #EC7D9D, #F19D9F);
+}
+
+.session.-accent6 {
+    background-image: linear-gradient(to bottom right, #8ad52a, #8ed733);
+}
+
+.session.-accent7 {
+    background-image: linear-gradient(to bottom right, #ffd138, #f5d982);
+}
+
+.session__title {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    height: 1.2rem;
+}
+
+@supports (display: grid) {
+    @media screen and (min-width: 1100px) {
+        .w-1100,
+        .session .title,
+        .session .location {
+            display: inline-block;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .session .attr,
+        .w-700 {
+            display: none;
+        }
+
+    }
+    @media screen and (max-width: 1100px) {
+        .w-1100,
+        .session .title,
+        .session .location {
+            display: none;
+        }
+
+        .session .attr,
+        .w-700 {
+            display: inline;
+        }
+
+        .session__title {
+            text-align: center;
+        }
+    }
+}
+
+body {
+    padding: 1em;
+    max-width: 1100px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+@keyframes slideDown {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card-content {
+    height: 100%;
+    color: #fff;
+    cursor: auto;
+}
+
+.card-content > * {
+    transform: translateY(-35px);
+    opacity: 0;
+}
+
+.card-content .close {
+    animation: slideDown 0.5s ease-out forwards;
+    height: 20px;
+    color: #fff;
+    text-align: right;
+    cursor: pointer;
+}
+
+.card-content .close #closeButton {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.card-content h2 {
+    font-size: 22px;
+    margin-bottom: 5px !important;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.card-content p {
+    margin: 15px 0;
+    animation: slideDown 0.5s ease-out 0.4s forwards;
+}
+
+.card-content a {
+    text-decoration: underline;
+}
+
+.card-mask {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+}
+
+.card-mask.fade-out {
+    animation: fade-out 0.5s forwards;
+}
+
+@keyframes fade-out {
+    from {
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
+    }
+}
+
+.card-mask.active {
+    opacity: 1;
+}
+
+footer {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -100px;
+    color: #465362;
+    font-size: 12px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: underline;
+}
